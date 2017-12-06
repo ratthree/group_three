@@ -470,7 +470,7 @@ background-color: #00aeef;
 
 
 .job-add{
-	background: url(img/job-add.png);
+	background: url(../img/job-add.png);
 	height: 500px;
 }
 .job-add h2 {
@@ -615,7 +615,7 @@ body {
     position:absolute;
     left:50%; /* centers the loading animation horizontally one the screen */
     top:50%; /* centers the loading animation vertically one the screen */
-    background-image:url(img/preloader.gif); /* path to your loading animation */
+    background-image:url(../img/preloader.gif); /* path to your loading animation */
     background-repeat:no-repeat;
     background-position:center;
     margin:-100px 0 0 -100px; /* is width and height divided by two */
