@@ -184,37 +184,79 @@
                                 <li>
                                     <a href="">
                                         <img src="img/team-football-small.jpeg" alt="">
-                                        <div class="overlay"><h3>Football</h3><!--<p>Web Designer</p> MAYBE ADD 2017 Expenses?--></div>
+                                        <div class="overlay"><h3>Football</h3></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="">
                                         <img src="img/team-baseball1-small.jpeg" alt="">
-                                        <div class="overlay"><h3>Baseball</h3><!--<p>CEO</p>--></div>
+                                        <div class="overlay"><h3>Baseball</h3></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="">
-                                        <img src="img/team-small-3.jpg" alt="">
-                                        <div class="overlay"><h3>Unknown girl</h3><p>Graphic Designer</p></div>
+                                        <img src="img/team-softball-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Softball</h3></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="">
-                                        <img src="img/team-small-4.jpg" alt="">
-                                        <div class="overlay"><h3>Eftakher Alam</h3><p>Graphic Designer</p></div>
+                                        <img src="img/team-mensbasketball-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Mens Basketball</h3></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="">
-                                        <img src="img/team-small-2.jpg" alt="">
-                                        <div class="overlay"><h3>Mark Otto</h3><p>Founder</p></div>
+                                        <img src="img/team-womensbasketball-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Womens Basketball</h3></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="">
-                                        <img src="img/team-small-1.jpg" alt="">
-                                        <div class="overlay"><h3>Rasel Ahmed</h3><p>Web Developer</p></div>
+                                        <img src="img/team-menshockey-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Mens Hockey</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-womenshockey-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Womens Hockey</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-fieldhockey-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Field Hockey</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-menslacrosse-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Mens Lacrosse</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-menssoccer-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Mens Soccer</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-womenssoccer-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Womens Soccer</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-polo-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Polo</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-gymnastics-small.jpeg" alt="">
+                                        <div class="overlay"><h3>Gymnastics</h3></div>
                                     </a>
                                 </li>
                             </ul>
