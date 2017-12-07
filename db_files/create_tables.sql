@@ -11,6 +11,7 @@ id INT unsigned not null auto_increment key,
 username varchar(128) not null,
 fname varchar(128) not null,
 lname varchar(128) not null,
+role varchar(128) not null,
 password varchar(128) not null
 )
 Engine InnoDB;
