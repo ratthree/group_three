@@ -1,6 +1,19 @@
 ##sql for u of u athletics site##
 
+create database group_three;
+
+use group_three;
+
 #create tables
+
+create table user (
+id INT unsigned not null auto_increment key,
+username varchar(128) not null,
+fname varchar(128) not null,
+lname varchar(128) not null,
+password varchar(128) not null
+)
+Engine InnoDB;
 
 create table team (
 id INT unsigned not null auto_increment key,
