@@ -27,11 +27,7 @@
 </head>
 <body style=" padding: 10px;">
 
-<!--<div id="preloader">
-        <div id="status">&nbsp;</div>
-</div>-->
 <!-- Body content -->
-
 <div class="header-connect">
     <div class="container">
         <div class="row">
@@ -58,6 +54,7 @@
     </div>
 </div>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-default">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -88,10 +85,11 @@
                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#contact">Equipment</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.6s"><a href="https://www.utahutes.com/calendar.aspx">Schedules</a></li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
 
+<!-- SELECTION -->
 <div class="slider-area">
     <div class="slider">
         <div id="bg-slider" class="owl-carousel owl-theme">
@@ -108,17 +106,20 @@
                 <h2 class="">Go Utes!</h2>
                 <p>Choose your athletics team below and a date range</p>
                 <div class="search-form wow pulse">
-                    <form action="" class="form-group">
+                    <form method="post" action="summary.php" class="form-group">
+                        <!-- Teams List Drop Down-->
                         <div class="form-group">
                             <?php
                                 include('php/teamslist.php');
                             ?>
                         </div>
-                        <!-- This needs to be a date range-->
+                        <!-- date range-->
                         <label for="beg_date">Begin Date</label>
                         <input type="date" name="beg_date" id="beg_date" style="background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;">
                         <label for="end_date">End Date</label>
                         <input type="date" name="end_date" id="end_date" style="background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;">
+                        <input type="submit">
+                        <input type="hidden" name="summary_page_link" value="summary.php">
                     </form>
                 </div>
             </div>

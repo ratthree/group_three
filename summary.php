@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +9,9 @@
     <meta name="author" content="Austin">
     <meta name="keyword" content="html, css, bootstrap, job-board">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/fontello.css">
@@ -29,22 +23,20 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/jquery.js"></script>
 </head>
+
 <body style=" padding: 10px;">
 
-<div id="preloader">
-    <div id="status">&nbsp;</div>
-</div>
 <!-- Body content -->
-
 <div class="header-connect">
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-8 col-xs-8">
                 <div class="header-half header-call">
                     <p>
-                                </i>University of Utah Athletics Department, 1825 E. South Campus Dr,
-								Salt Lake City, UT 84112-0900</span>
+                        </i>University of Utah Athletics Department, 1825 E. South Campus Dr,
+                        Salt Lake City, UT 84112-0900</span>
                         <span><i class="icon-cloud"></i>+1 801-581-8171</span>
                     </p>
                 </div>
@@ -83,16 +75,16 @@
                 <a href="logout.php" class="navbar-btn nav-button wow bounceInRight" role="button" data-wow-delay="0.4s">Logout</a>
             </div>
             <ul class="main-nav nav navbar-nav navbar-right">
-                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="HomePage.php">Home</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#team">Teams</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#athletics">Athletes</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#about">Venues</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#contact">Events</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="#home">Home</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#athletics">Athlete</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#team">Teams</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#about">Athletes</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#contact">Venues</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#contact">Equipment</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="https://www.utahutes.com/calendar.aspx">Schedules</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.6s"><a href="https://www.utahutes.com/calendar.aspx">Schedules</a></li>Schedules</a></li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
 
 <!-- SUMMARY -->

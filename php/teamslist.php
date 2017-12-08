@@ -3,7 +3,7 @@
 echo '<select name="team_name" id="team_name" class="form-control">';
 echo '<option>Select A Team</option>';
 
-require_once 'php/login.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/code/group_three/php/login.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if (! $conn->connect_error){
@@ -21,7 +21,7 @@ if (! $conn->connect_error){
         echo '<option>' . $row[team_type]. '</option>'.'<br>';
     }
     $conn->close();
-
+    
 }
 
 echo '</select>';
