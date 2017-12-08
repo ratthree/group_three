@@ -1,6 +1,6 @@
 <?php
 
-require_once 'login.php';
+require_once '../login.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) die($conn->connect_error);
@@ -8,7 +8,6 @@ if ($conn->connect_error) die($conn->connect_error);
 echo <<<_END
 	<pre>
 	<a href="addAthlete.php">Add Athlete</a>
-	
 _END;
 
 $query="SELECT * FROM athlete";

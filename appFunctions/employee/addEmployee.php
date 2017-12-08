@@ -1,15 +1,14 @@
 <?php
 
-require_once 'login.php';
+require_once '../login.php';
 
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) die($conn->connect_error);
-			// Employee ID:<input type="text" name="eid"></br></br>
-			// Team ID:<input type='text' name='tid'></br></br>
+
 echo <<<_END
 <form action="addEmployee.php" method="post"<pre>
-
+			Employee ID:<input type="text" name="eid"></br></br>
 			Title:<input type='text' name='title'></br></br>
 			First Name:<input type='text' name='fname'></br></br>
 			Last Name:<input type='text' name='lname'></br></br>
@@ -19,6 +18,7 @@ echo <<<_END
 			Zip:<input type='text' name='zip'></br></br>
 			Type:<input type='text' name='type'></br></br>
 			Years of Employment:<input type='text' name='yre'></br></br>	
+			Team ID:<input type='text' name='tid'></br></br>
 	<input type="submit" name="ADD EMPLOYEE">
 	</br></br>
 	<a href="viewEmployee.php" >View all Employees</a>
@@ -27,7 +27,7 @@ _END;
 
 if(isset($_POST['eid'])) 
 		{
-		// $eid = get_post($conn, 'eid');
+		$eid = get_post($conn, 'eid');
 		$title = get_post($conn, 'title');		
 		$fname = get_post($conn, 'fname');
 		$lname = get_post($conn, 'lname');
@@ -37,11 +37,9 @@ if(isset($_POST['eid']))
 		$zip = get_post($conn, 'zip');
 		$type = get_post($conn, 'type');
 		$yre = get_post($conn, 'yre');
-		// $tid = get_post($conn, 'tid');
-
-		//$query = "insert into employee (id, title, fname, lname, street_address, city_address, state_address, zip_address, type, years_employed, team_id) values ('$eid', '$title', '$fname', '$lname', '$street', '$city', '$state', '$zip', '$type', '$yre', '$tid')";
+		$tid = get_post($conn, 'tid');
 		
-		$query = "insert into employee (title, fname, lname, street_address, city_address, state_address, zip_address, type, years_employed) values ('$title', '$fname', '$lname', '$street', '$city', '$state', '$zip', '$type', '$yre')";
+		$query = "insert into employee (title, fname, lname, street_address, city_address, state_address, zip_address, type, years_employed, team_id) values ('$title', '$fname', '$lname', '$street', '$city', '$state', '$zip', '$type', '$yre', '$tid')";
 		
 		$result=$conn->query($query);
 		if(!$result) echo "INSERT failed: $query <br>" .

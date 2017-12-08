@@ -1,13 +1,14 @@
 <?php
 
-require_once 'login.php';
+require_once '../login.php';
 
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) die($conn->connect_error);
-		// Player ID:<input type="text" name="id"></br></br>
+		
 echo <<<_END
 <form action="addAthlete.php" method="post"<pre>
+			Athlete ID:<input type='text' name='aid'></br></br>
 			First Name:<input type='text' name='fname'></br></br>
 			Last Name:<input type='text' name='lname'></br></br>
 			Position:<input type='text' name='position'></br></br>
@@ -29,8 +30,9 @@ echo <<<_END
 _END;
 
 
-if(isset($_POST['id'])) 
+if(isset($_POST['aid'])) 
 		{
+		$aid = get_post($conn, 'aid');
 		$fname = get_post($conn, 'fname');
 		$lname = get_post($conn, 'lname');
 		$position = get_post($conn, 'position');

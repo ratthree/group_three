@@ -1,6 +1,6 @@
 <?php
 
-require_once 'login.php';
+require_once '../login.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) die($conn->connect_error);
@@ -13,7 +13,7 @@ if(isset($_POST['delete']) && isset($_POST['evid'])) {
 	$conn->error . "<br><br>";
 	
 	echo <<<_END
-	<pre>Delete Event with ID: $id was successful</pre>
+	<pre>Delete Event with ID: $evid was successful</pre>
 	</br></br>
 	<a href="viewEvent.php">View all Events</a>
 _END;

@@ -5,17 +5,17 @@ require_once '../login.php';
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) die($conn->connect_error);
 
-if(isset($_POST['delete']) && isset($_POST['tid'])) {
-	$tid=get_post($conn, 'tid');
-	$query="DELETE FROM team WHERE id='$tid'";
+if(isset($_POST['delete']) && isset($_POST['eqid'])) {
+	$eqid=get_post($conn, 'eqid');
+	$query="DELETE FROM equipment WHERE id='$eqid'";
 	$result=$conn->query($query);
 	if(!$result) echo "DELETE failed: $query <br>" .
 	$conn->error . "<br><br>";
 	
 	echo <<<_END
-	<pre>Delete Team with ID: $tid was successful</pre>
+	<pre>Delete Equipment with ID: $eqid was successful</pre>
 	</br></br>
-	<a href="viewTeam.php">View all Teams</a>
+	<a href="viewEquipment.php">View all Equipments</a>
 _END;
 }
 

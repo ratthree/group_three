@@ -1,17 +1,16 @@
 <?php
 
-require_once 'login.php';
+require_once '../login.php';
 
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) die($conn->connect_error);
 
-			//Event ID:<input type="text" name="evid"></br></br>
-			//Team ID:<input type='text' name='tid'></br></br>
-			//Venue ID:<input type='text' name='vid'></br></br>
 echo <<<_END
 <form action="addEvent.php" method="post"<pre>
-			
+			Event ID:<input type="text" name="evid"></br></br>
+			Team ID:<input type='text' name='tid'></br></br>
+			Venue ID:<input type='text' name='vid'></br></br>			
 			Income:<input type='text' name='income'></br></br>
 			Event Date:<input type='text' name='edate'></br></br>
 			Opposing Team:<input type='text' name='vsteam'></br></br>
@@ -24,22 +23,18 @@ echo <<<_END
 </pre></form>
 _END;
 
-evid, income, edate, vsteam, atd, tid, vid
-id, income, event_date, opposing_team, attendance, team_id, venue_id
 if(isset($_POST['evid'])) 
 		{
-		// $evid = get_post($conn, 'evid');
-		$income = get_post($conn, 'fname');
-		$edate = get_post($conn, 'lname');
-		$vsteam = get_post($conn, 'position');
-		$atd = get_post($conn, 'al');
-		// $tid = get_post($conn, 'strc');
-		// $vid = get_post($conn, 'cc');
+		$evid = get_post($conn, 'evid');
+		$income = get_post($conn, 'income');
+		$edate = get_post($conn, 'edate');
+		$vsteam = get_post($conn, 'vsteam');
+		$atd = get_post($conn, 'atd');
+		$tid = get_post($conn, 'tid');
+		$vid = get_post($conn, 'vid');
 
-		// $query = "insert into event (id, income, event_date, opposing_team, attendance, team_id, venue_id) values ('$evid', '$income', '$edate', '$vsteam', '$atd', '$tid', '$vid')";
-		
-		$query = "insert into event (income, event_date, opposing_team, attendance) values ('$income', '$edate', '$vsteam', '$atd')";
-		
+		//$query = "insert into event (id, income, event_date, opposing_team, attendance, team_id, venue_id) values ('$evid', '$income', '$edate', '$vsteam', '$atd', '$tid', '$vid')";
+		$query = "insert into event (income, event_date, opposing_team, attendance, team_id, venue_id) values ('$income', '$edate', '$vsteam', '$atd', '$tid', '$vid')";
 		$result=$conn->query($query);
 		if(!$result) echo "INSERT failed: $query <br>" .
 			$conn->error . "<br><br>";

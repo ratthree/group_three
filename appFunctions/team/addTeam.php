@@ -1,11 +1,11 @@
 <?php
 
-require_once 'login.php';
+require_once '../login.php';
 
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) die($conn->connect_error);
-			// Team ID:<input type="text" name="tid"></br></br>
+			
 echo <<<_END
 <form action="addTeam.php" method="post"<pre>
 			Team ID:<input type="text" name="tid"></br></br>
@@ -30,10 +30,8 @@ if(isset($_POST['tid']))
 		$record = get_post($conn, 'record');
 		$dos = get_post($conn, 'dos');
 		$doe = get_post($conn, 'doe');
-
-		$query = "insert into team (id, team_type, rank, record, start_date, end_date) values ('$tid', '$ttype', '$rank', '$record', '$dos', '$doe')";
 		
-		//$query = "insert into team (team_type, rank, record, start_date, end_date) values ('$ttype', '$rank', '$record', '$dos', '$doe')";
+		$query = "insert into team (team_type, rank, record, start_date, end_date) values ('$ttype', '$rank', '$record', '$dos', '$doe')";
 		
 		$result=$conn->query($query);
 		if(!$result) echo "INSERT failed: $query <br>" .
