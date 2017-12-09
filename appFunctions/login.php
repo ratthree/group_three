@@ -1,8 +1,8 @@
 <?php
 
 $hn ='localhost';
-$db ='project';
+$db ='group_three';
 $un ='root';
-$pw ='';
+$pw ='root';
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once 'login.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/code/group_three/php/login.php';
 require_once 'User.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);

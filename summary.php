@@ -7,8 +7,10 @@ if ($conn->connect_error) die("Connection Error: ".$result->error);
 
 if (isset($_POST['team_type'])) {
     $beg_date = $_POST['beg_date'];
+    $beg_format_date = date_create($beg_date);
     $beg_year = substr($beg_date,0,4);
     $end_date = $_POST['end_date'];
+    $end_format_date = date_create($end_date);
     $end_year = substr($end_date,0,4);
     //team_id
     $team_type = $_POST['team_type'];
@@ -147,15 +149,15 @@ $conn->close();
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="button navbar-right">
-                <a href="logout.php" class="navbar-btn nav-button wow bounceInRight" role="button" data-wow-delay="0.4s">Logout</a>
+                <a href="appFunctions/logout.php" class="navbar-btn nav-button wow bounceInRight" role="button" data-wow-delay="0.4s">Logout</a>
             </div>
             <ul class="main-nav nav navbar-nav navbar-right">
-                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="HomePage.php">Home</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#athletics">Athlete</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#team">Teams</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#about">Athletes</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#contact">Venues</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#contact">Equipment</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="#home">Home</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="appFunctions/athlete/viewAthlete.php">Athletes</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="appFunctions/team/viewTeam.php">Teams</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="appFunctions/event/viewEvent.php">Events</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="appFunctions/employee/viewEmployee.php">Employees</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="appFunctions/equipment/viewEquipment.php">Equipment</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.6s"><a href="https://www.utahutes.com/calendar.aspx">Schedules</a></li>
             </ul>
         </div>
@@ -170,7 +172,7 @@ $conn->close();
         <?php
         setlocale(LC_MONETARY, 'en_US.UTF-8');
         echo '<h2 class="center-block">'."Income and Expense Summary For: " . ucfirst($team_type) . '</h2>';
-        echo '<p class="lead">'. 'Report Dates Range from: ' . $beg_date . ' to ' . $end_date . '</p>';
+        echo '<p class="lead">'. 'Report Dates Range from: ' . date_format($beg_format_date, 'M d, Y') . ' to ' . date_format($end_format_date, 'M d, Y') . '</p>';
         echo '<p class="text-info">'."INCOME" . '</p>';
         echo '<p class="text-muted">'."Event Income: " . money_format('%.2n',$event_income) . '<br>';
         echo '<p class="text-info">'."EXPENSES" . '</p>';

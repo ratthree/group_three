@@ -9,7 +9,7 @@ if(isset($_SESSION['username']))
 	setCookie(session_name(), '', time()-2592000, '/');
 	session_destroy();
 	
-		echo "user susccessfully logged out";
+		echo "user successfully logged out";
 }
 
 
