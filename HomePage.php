@@ -107,11 +107,15 @@
                 <p>Choose your athletics team below and a date range</p>
                 <div class="search-form wow pulse">
                     <form method="post" action="summary.php" class="form-group">
+                        <input type="hidden" name="summary_page_link" value="summary.php">
                         <!-- Teams List Drop Down-->
                         <div class="form-group">
+                        <select name="team_type" class="form-control">
+                            <option>Select A Team</option>
                             <?php
                                 include('php/teamslist.php');
                             ?>
+                        </select>
                         </div>
                         <!-- date range-->
                         <label for="beg_date">Begin Date</label>
@@ -119,7 +123,6 @@
                         <label for="end_date">End Date</label>
                         <input type="date" name="end_date" id="end_date" style="background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;">
                         <input type="submit">
-                        <input type="hidden" name="summary_page_link" value="summary.php">
                     </form>
                 </div>
             </div>
@@ -150,7 +153,7 @@
                         </li>
                         <li>
                             <a href="">
-                                <img src="img/team-baseball1-small.jpeg" alt="">
+                                <img src="img/team-baseball-small.jpeg" alt="">
                                 <div class="overlay"><h3>Baseball</h3></div>
                             </a>
                         </li>

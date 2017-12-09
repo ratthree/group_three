@@ -23,10 +23,4 @@ if (isset($_POST['team_type'])) {
 
 }
 
-echo $team_id . '<br>';
-echo $beg_date . '<br>';
-echo $end_date . '<br>';
-echo "Stuff and Things";
-
-
 ?>

@@ -1,3 +1,78 @@
+<?php
+
+require_once $_SERVER['DOCUMENT_ROOT'].'/code/group_three/php/login.php';
+
+$conn = new mysqli($hn, $un, $pw, $db);
+if ($conn->connect_error) die("Connection Error: ".$result->error);
+
+if (isset($_POST['team_type'])) {
+    $beg_date = $_POST['beg_date'];
+    $beg_year = substr($beg_date,0,4);
+    $end_date = $_POST['end_date'];
+    $end_year = substr($end_date,0,4);
+    //team_id
+    $team_type = $_POST['team_type'];
+    $query = "SELECT id from team where team_type = '$team_type'";
+    $team_id = $conn->query($query);
+    if (!$team_id) die("Select statement failed: " . $result->error);
+    $row = $team_id->fetch_array(MYSQLI_NUM);
+    $team_id = $row[0];
+//EXPENSES
+    //employees
+    $query = "select round(sum(wages),2) employees from
+                  (
+                    select sum(yearly_wage) wages
+                    from hourly_employee
+                    where employee_id in (
+                      select id from employee where team_id = '$team_id'
+                    )
+                    UNION ALL
+                    select sum(salary) wages
+                    from salary_employee
+                    where employee_id in (
+                      select id from employee where team_id = '$team_id'
+                    )
+                  )wages";
+    $employees = $conn->query($query);
+    if (!$employees) die("Employees Select statement failed: " . $result->error);
+    $row = $employees->fetch_array(MYSQLI_NUM);
+    $employees = $row[0];
+
+    //students
+    $query = "select round(sum(amount),2) scholarships
+                from scholarship
+                where athlete_id in (select id from athlete where team_id = $team_id)";
+    $students = $conn->query($query);
+    if (!$students) die("Students Select statement failed: " . $result->error);
+    $row = $students->fetch_array(MYSQLI_NUM);
+    $students = $row[0];
+
+    //equipment
+    $query = "select round(sum(yearly_cost),2) equip_cost
+                from equipment
+                where id in (select equipment_id from equipment_purpose where team_id = $team_id)
+                and year between $beg_year and $end_year";
+    $equipment = $conn->query($query);
+    if (!$equipment) die("equipment Select statement failed: " . $result->error);
+    $row = $equipment->fetch_array(MYSQLI_NUM);
+    $equipment = $row[0];
+
+//REVENUE
+    //EVENTS
+    $query = "select round(sum(income),2) event_income
+                from event
+                where team_id = $team_id
+                and event_date between '$beg_date' and '$end_date'";
+    $event_income = $conn->query($query);
+    if (!$event_income) die("event_income Select statement failed: " . $result->error);
+    $row = $event_income->fetch_array(MYSQLI_NUM);
+    $event_income = $row[0];
+
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -75,22 +150,41 @@
                 <a href="logout.php" class="navbar-btn nav-button wow bounceInRight" role="button" data-wow-delay="0.4s">Logout</a>
             </div>
             <ul class="main-nav nav navbar-nav navbar-right">
-                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="#home">Home</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="HomePage.php">Home</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#athletics">Athlete</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#team">Teams</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#about">Athletes</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#contact">Venues</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#contact">Equipment</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.6s"><a href="https://www.utahutes.com/calendar.aspx">Schedules</a></li>Schedules</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.6s"><a href="https://www.utahutes.com/calendar.aspx">Schedules</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<hr>
 
 <!-- SUMMARY -->
 
+<div class="jumbotron">
+    <div class="container text-center">
+        <?php
+        setlocale(LC_MONETARY, 'en_US.UTF-8');
+        echo '<h2 class="center-block">'."Income and Expense Summary For: " . ucfirst($team_type) . '</h2>';
+        echo '<p class="lead">'. 'Report Dates Range from: ' . $beg_date . ' to ' . $end_date . '</p>';
+        echo '<p class="text-info">'."INCOME" . '</p>';
+        echo '<p class="text-muted">'."Event Income: " . money_format('%.2n',$event_income) . '<br>';
+        echo '<p class="text-info">'."EXPENSES" . '</p>';
+        echo '<p class="text-muted">'."Employee Wages: " . money_format('%.2n', $employees). '</p>';
+        echo '<p class="text-muted">'."Students Scholarships: " . money_format('%.2n',$students). '</p>';
+        echo '<p class="text-muted">'."Equipment Costs: " . money_format('%.2n',$equipment). '</p>';
+        echo '<p class="text-info">'."NET GAINS/LOSSES" . '</p>';
+        echo '<p class="text-muted">'."Gains/Losses: " . money_format('%.2n',($event_income - $employees - $students - $equipment)). '</p>';
+        ?>
+    </div>
+</div>
 
 <hr>
+
 <!-- FOOTER -->
 <div class="footer-area center">
     <div class="col-md-4">
@@ -121,8 +215,6 @@
         <p><span>IS 6465 Web-based Application | Fall 2017 | Group 3 </span></p>
     </div>
 </div>
-
-
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
