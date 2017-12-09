@@ -36,7 +36,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		
 		$name = $row[2];
 		$username=$row[1];
-		$result->close();	
+		$result->close();
 		
 		$salt1 = 'fue@312!@#%';
 		$salt2 = '&$21%d34weqo';
