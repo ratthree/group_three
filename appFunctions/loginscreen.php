@@ -31,12 +31,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	if(!$result) die($conn->error);
 	elseif($result->num_rows){
 		$row = $result->fetch_array(MYSQLI_NUM);
-		$correct_pw = $row[5];
+		$correct_pw = $row[4];
 		//echo"$correct_pw";
 		
 		$name = $row[2];
 		$username=$row[1];
-		$result->close();
+		$result->close();	
 		
 		$salt1 = 'fue@312!@#%';
 		$salt2 = '&$21%d34weqo';
@@ -50,7 +50,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			
 			//print_r($user->getRoles());
 			
-			header("Location: ../HomePage.HTML");
+			header("Location: ../HomePage.php");
 		}else{
 			echo 'Please check your password.';
 		}		

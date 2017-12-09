@@ -71,13 +71,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="button navbar-right">
-                <a href="appFunctions/userMgt/loginscreen.php" class="navbar-btn nav-button wow bounceInRight login" role="button"
+                <a href="appFunctions/loginscreen.php" class="navbar-btn nav-button wow bounceInRight login" role="button"
                    data-wow-delay="0.4s">Login</a>
-                <a role="button" class="navbar-btn nav-button wow fadeInRight" href="signup.html" data-wow-delay="0.6s">Sign
+                <a role="button" class="navbar-btn nav-button wow fadeInRight" href="appFunctions/userMgt/signUp.php" data-wow-delay="0.6s">Sign
                     up</a>
             </div>
             <ul class="main-nav nav navbar-nav navbar-right">
-                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="#home">Home</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="HomePage.php">Home</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="appFunctions/athlete/viewAthlete.php">Athletes</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="appFunctions/team/viewTeam.php">Teams</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="appFunctions/event/viewEvent.php">Events</a></li>

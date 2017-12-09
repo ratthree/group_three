@@ -14,7 +14,7 @@ echo <<<_END
 
 	<input type="submit" name="SIGN UP">
 	</br></br>
-	<a href="../HomePage.HTML" >Back To Home Page</a>
+	<a href="../../HomePage.php" >Back To Home Page</a>
 </pre></form>
 _END;
 
